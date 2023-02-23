@@ -1,1 +1,26 @@
-<p>noticias works!</p>
+<div class="main">
+  <h3>Noticias</h3>
+  <div *ngIf="error">
+    <p>Error: {{ error }}</p>
+  </div>
+
+  <form class="form" [formGroup]="noticiaForm" (ngSubmit)="addNoticia()">
+    <input class="input" type="text" name="titulo" placeholder="Enter noticia" formControlName="titulo" />
+    <br />
+    <input class="input" type="text" name="contenido" placeholder="Enter contenido" formControlName="contenido" />
+    <br />
+    <button class="submit-button" [disabled]="noticiaForm.invalid">SUBMIT</button>
+  </form>
+
+  <div class="noticia-container" *ngIf="noticias">
+    <ul>
+      <li *ngFor="let noticia of noticias">
+        <div class="noticia">
+          <span class="noticia-titulo">{{ noticia.titulo }}</span>
+          <span class="noticia-contenido">{{ noticia.contenido }}</span>
+        </div>
+        <button class="delete-btn" (click)="deleteNoticia(noticia.id.toString())"> DELETE NOTICIA</button>
+      </li>
+    </ul>
+  </div>
+</div>

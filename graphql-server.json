@@ -1,0 +1,9 @@
+{
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Lorem Ipsum",
+      "contenido": "open"
+    }
+  ]
+}
